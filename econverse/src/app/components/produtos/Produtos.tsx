@@ -6,9 +6,7 @@ interface ItemProps {
   id: number;
   image: string;
   description: string;
-  price: string;
-  installment: string;
-  shipping: string;
+  price: number;
 }
 
 interface CarouselProps {
@@ -16,15 +14,15 @@ interface CarouselProps {
   active: number;
 }
 
-const Item: React.FC<ItemProps> = ({ image, description, price, installment, shipping }) => (
+const Item: React.FC<ItemProps> = ({ image, description, price }) => (
   <div className={styles.card}>
     <img src={image} alt={description} className={styles.image} />
     <p className={styles.description}>{description}</p>
     <div className={styles.priceDetails}>
-      <span className={styles.currentPrice}>{price}</span>
-      <span className={styles.installment}>{installment}</span>
+      <span className={styles.currentPrice}>R$ {price.toFixed(2)}</span>
+      <span className={styles.installment}>ou 3x de {(price / 3).toFixed(2)} sem juros</span>
     </div>
-    <span className={styles.shipping}>{shipping}</span>
+    <span className={styles.shipping}>Frete grátis</span>
     <button className={styles.buyButton}>COMPRAR</button>
   </div>
 );
@@ -38,7 +36,6 @@ const Carousel: React.FC<CarouselProps> = ({ items, active }) => {
 
   const moveRight = () => {
     setActive((prev) => {
-      // Se houver menos de 4 itens restantes, começa novamente do início
       if (prev + 4 >= items.length) {
         return 0;
       }
@@ -66,7 +63,11 @@ const Carousel: React.FC<CarouselProps> = ({ items, active }) => {
         <div className={styles.carouselInner}>
           {items.slice(currentActive, currentActive + 4).map((item, index) => (
             <div key={index} className={styles.item}>
-              <Item {...item} />
+              <Item 
+                image={item.photo} 
+                description={item.descriptionShort} 
+                price={item.price} 
+              />
             </div>
           ))}
         </div>
@@ -78,4 +79,4 @@ const Carousel: React.FC<CarouselProps> = ({ items, active }) => {
   );
 };
 
-export default Carousel;
+export default Carousel;  
