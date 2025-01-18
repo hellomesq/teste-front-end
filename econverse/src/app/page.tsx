@@ -1,13 +1,14 @@
 import Navbar from "./components/global/Navbar";
 import Categorias from "./components/categorias/Categorias"
 import Carousel from "./components/produtos/Produtos";
+import Parceiros from "./components/parceiros/Parceiros"
 import './global.css';
 
 export default function Home() {
   const items = [
     {
       id: 1,
-      image: "image1.png",
+      image: "celular.png",
       description: "Lorem ipsum dolor sit amet.",
       price: "R$ 28,90",
       installment: "ou 3x de 9,63 sem juros",
@@ -15,7 +16,7 @@ export default function Home() {
     },
     {
       id: 2,
-      image: "image2.png",
+      image: "celular.png",
       description: "fdsd.",
       price: "R$ 28,90",
       installment: "ou 3x de 9,63 sem juros",
@@ -23,7 +24,7 @@ export default function Home() {
     },
     {
       id: 3,
-      image: "image3.png",
+      image: "celular.png",
       description: "Lorem",
       price: "R$ 28,90",
       installment: "ou 3x de 9,63 sem juros",
@@ -31,7 +32,7 @@ export default function Home() {
     },
     {
       id: 4,
-      image: "image4.png",
+      image: "celular.png",
       description: " ipsum",
       price: "R$ 28,90",
       installment: "ou 3x de 9,63 sem juros",
@@ -39,7 +40,7 @@ export default function Home() {
     },
     {
       id: 5,
-      image: "image5.png",
+      image: "celular.png",
       description: "dolor ",
       price: "R$ 28,90",
       installment: "ou 3x de 9,63 sem juros",
@@ -47,7 +48,7 @@ export default function Home() {
     },
     {
       id: 6,
-      image: "image6.png",
+      image: "celular.png",
       description: "sit ",
       price: "R$ 28,90",
       installment: "ou 3x de 9,63 sem juros",
@@ -55,7 +56,7 @@ export default function Home() {
     },
     {
       id: 7,
-      image: "image7.png",
+      image: "celular.png",
       description: "amet.",
       price: "R$ 28,90",
       installment: "ou 3x de 9,63 sem juros",
@@ -63,7 +64,7 @@ export default function Home() {
     },
     {
       id: 8,
-      image: "image8.png",
+      image: "celular.png",
       description: "oito",
       price: "R$ 28,90",
       installment: "ou 3x de 9,63 sem juros",
@@ -71,7 +72,7 @@ export default function Home() {
     },
     {
       id: 9,
-      image: "image9.png",
+      image: "celular.png",
       description: "nove",
       price: "R$ 28,90",
       installment: "ou 3x de 9,63 sem juros",
@@ -79,7 +80,7 @@ export default function Home() {
     },
     {
       id: 10,
-      image: "image10.png",
+      image: "celular.png",
       description: "dez",
       price: "R$ 28,90",
       installment: "ou 3x de 9,63 sem juros",
@@ -93,6 +94,7 @@ export default function Home() {
   <div className="banner"><img src="banner_um.png" alt="" /></div>
   <Categorias />
   <Carousel items={items} active={0} />
+  <Parceiros />
   </>
   );
 }

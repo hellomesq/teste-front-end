@@ -33,29 +33,40 @@ const Carousel: React.FC<CarouselProps> = ({ items, active }) => {
   const [currentActive, setActive] = useState(active);
 
   const moveLeft = () => {
-    setActive((prev) => (prev === 0 ? items.length - 1 : prev - 1));
+    setActive((prev) => (prev <= 0 ? items.length - 4 : prev - 4)); // Move 4 itens para a esquerda
   };
 
   const moveRight = () => {
-    setActive((prev) => (prev === items.length - 1 ? 0 : prev + 1));
+    setActive((prev) => {
+      // Se houver menos de 4 itens restantes, começa novamente do início
+      if (prev + 4 >= items.length) {
+        return 0;
+      }
+      return prev + 4; // Move 4 itens para a direita
+    });
   };
 
   return (
     <>
       <h1 className={styles.title}>Produtos relacionados</h1>
+      <div className={styles.actions}>
+        <ul>
+          <li><a href="#">Celular</a></li>
+          <li><a href="#">Acessórios</a></li>
+          <li><a href="#">Tablets</a></li>
+          <li><a href="#">Notebooks</a></li>
+          <li><a href="#">Tvs</a></li>
+          <li><a href="#">Ver todos</a></li>
+        </ul>
+      </div>
       <div className={styles.carousel}>
         <div className={styles.arrow} onClick={moveLeft}>
           &#x276E;
         </div>
         <div className={styles.carouselInner}>
-          {items.map((item, index) => (
-            <div
-              key={index}
-              className={`${styles.item} ${
-                index === currentActive ? styles.active : styles.hidden
-              }`}
-            >
-              {index === currentActive && <Item {...item} />}
+          {items.slice(currentActive, currentActive + 4).map((item, index) => (
+            <div key={index} className={styles.item}>
+              <Item {...item} />
             </div>
           ))}
         </div>

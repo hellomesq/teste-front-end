@@ -35,16 +35,16 @@
 
   .carouselInner {
     display: flex;
-    width: 300px; /* Tamanho fixo para limitar o carrossel */
+    width: calc(100% * 4); /* Exibir 4 itens por vez */
     overflow: hidden;
     position: relative;
+    transition: transform 0.5s ease;
   }
 
   .item {
     flex-shrink: 0;
-    width: 100%;
-    opacity: 1;
-    transition: transform 0.5s ease, opacity 0.5s ease;
+    width: 25%; /* Cada item ocupa 25% da largura do carrossel */
+    padding: 10px;
   }
 
   .hidden {
