@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaSearch, FaHeart, FaUser, FaShoppingCart } from 'react-icons/fa';
-import styles from './Navbar.module.scss'; // Importando o arquivo Sass
+import styles from './Style.module.scss';
 
 const Navbar: React.FC = () => {
   return (
@@ -41,7 +41,6 @@ const Navbar: React.FC = () => {
           <li><a href="#assinatura">Assinatura</a></li>
         </ul>
       </nav>
-      
     </header>
   );
 };

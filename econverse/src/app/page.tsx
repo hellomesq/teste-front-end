@@ -2,8 +2,12 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./components/global/Navbar";
 import Categorias from "./components/categorias/Categorias";
+import CategoriasProdutos from "./components/produtos/CategoriasProd";
 import Carousel from "./components/produtos/Produtos";
 import Parceiros from "./components/parceiros/Parceiros";
+import Marcas from "./components/produtos/Marcas";
+import NewsLetter from "./components/global/NewsLetter";
+import Footer from "./components/global/Footer";
 import './global.css';
 
 interface Product {
@@ -31,8 +35,17 @@ export default function Home() {
       <Navbar />
       <div className="banner"><img src="banner_um.png" alt="" /></div>
       <Categorias />
+      <CategoriasProdutos />
       <Carousel items={products} active={0} />
       <Parceiros />
+      <CategoriasProdutos />
+      <Carousel items={products} active={0} />
+      <Parceiros />
+      <Marcas />
+      <CategoriasProdutos />
+      <Carousel items={products} active={0} />
+      <NewsLetter />
+      <Footer />
     </>
   );
 };

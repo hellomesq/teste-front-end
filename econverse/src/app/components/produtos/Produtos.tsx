@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from "react";
+import Modal from "./Modal";
 import styles from "./Produtos.module.scss";
 
 interface ItemProps {
@@ -8,24 +9,35 @@ interface ItemProps {
   description: string;
   price: number;
 }
-
 interface CarouselProps {
   items: ItemProps[];
   active: number;
 }
 
-const Item: React.FC<ItemProps> = ({ image, description, price }) => (
-  <div className={styles.card}>
-    <img src={image} alt={description} className={styles.image} />
-    <p className={styles.description}>{description}</p>
-    <div className={styles.priceDetails}>
-      <span className={styles.currentPrice}>R$ {price.toFixed(2)}</span>
-      <span className={styles.installment}>ou 3x de {(price / 3).toFixed(2)} sem juros</span>
+const Item: React.FC<ItemProps> = ({ image, description, price }) => {
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const handleOpenModal = () => setModalOpen(true);
+  const handleCloseModal = () => setModalOpen(false);
+
+  return (
+    <div className={styles.card}>
+      <img src={image} alt={description} className={styles.image} />
+      <p className={styles.description}>{description}</p>
+      <div className={styles.priceDetails}>
+        <span className={styles.currentPrice}>R$ {price.toFixed(2)}</span>
+        <span className={styles.installment}>ou 3x de {(price / 3).toFixed(2)} sem juros</span>
+      </div>
+      <span className={styles.shipping}>Frete grátis</span>
+      <button className={styles.buyButton} onClick={handleOpenModal}>COMPRAR</button>
+      <Modal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        product={{ image, description, price }}
+      />
     </div>
-    <span className={styles.shipping}>Frete grátis</span>
-    <button className={styles.buyButton}>COMPRAR</button>
-  </div>
-);
+  );
+};
 
 const Carousel: React.FC<CarouselProps> = ({ items, active }) => {
   const [currentActive, setActive] = useState(active);
@@ -45,17 +57,6 @@ const Carousel: React.FC<CarouselProps> = ({ items, active }) => {
 
   return (
     <>
-      <h1 className={styles.title}>Produtos relacionados</h1>
-      <div className={styles.actions}>
-        <ul>
-          <li><a href="#">Celular</a></li>
-          <li><a href="#">Acessórios</a></li>
-          <li><a href="#">Tablets</a></li>
-          <li><a href="#">Notebooks</a></li>
-          <li><a href="#">Tvs</a></li>
-          <li><a href="#">Ver todos</a></li>
-        </ul>
-      </div>
       <div className={styles.carousel}>
         <div className={styles.arrow} onClick={moveLeft}>
           &#x276E;
