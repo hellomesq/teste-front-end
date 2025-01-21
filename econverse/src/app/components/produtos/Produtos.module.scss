@@ -1,22 +1,34 @@
-.title {
-  text-align: center;
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
+$description: #9F9F9F;
+$destaque: #3019B2;
+$button: #3442B5;
+$btnmodal: #F7CA11;
+
 
 .actions ul {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  margin-bottom: 20px;
   list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  max-width: 100%;
+}
+
+.actions li {
+  padding: 10px 65px;
+  border: 1px solid #dcdcdc; 
 }
 
 .actions a {
   text-decoration: none;
-  color: #007bff;
+  color: black; 
   font-size: 14px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.actions a:hover {
+  color: #1a237e; 
 }
 
 .carousel {
@@ -24,18 +36,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 20px;
 
   .arrow {
     font-size: 30px;
     cursor: pointer;
-    color: #007bff;
+    color: #2e2e2e;
     margin: 0 15px;
     user-select: none;
   }
 
   .carouselInner {
     display: flex;
-    width: calc(100% * 4); /* Exibir 4 itens por vez */
+    width: calc(100% * 4); 
     overflow: hidden;
     position: relative;
     transition: transform 0.5s ease;
@@ -43,7 +56,7 @@
 
   .item {
     flex-shrink: 0;
-    width: 25%; /* Cada item ocupa 25% da largura do carrossel */
+    width: 25%; 
     padding: 10px;
   }
 
@@ -55,22 +68,29 @@
 .card {
   background: #fff;
   border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 10px;
-  text-align: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  width: 250px;
+  border-radius: 8px;
+  padding: 15px;
+  text-align: left; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  width: 300px; 
+  display: flex;
+  flex-direction: column; 
+  gap: 10px; 
 }
 
 .image {
-  width: 100%;
-  border-bottom: 1px solid #ddd;
-  margin-bottom: 10px;
+  width: 90%;
+  height: 200px; 
+  object-fit: cover; 
+  border-radius: 8px; 
+  margin-left: 6%;
 }
 
 .description {
-  font-size: 12px;
-  margin: 10px 0;
+  font-size: 16px; 
+  font-weight: 500; 
+  color: #333;
+  margin: 5px 0;
 }
 
 .priceDetails {
@@ -78,31 +98,41 @@
   margin: 5px 0;
 
   .currentPrice {
-    font-size: 16px;
+    font-size: 20px; 
     font-weight: bold;
-    color: #28a745;
+    color: black;
   }
 
   .installment {
     display: block;
-    font-size: 12px;
-    color: #007bff;
+    font-size: 14px; 
+    color: #333;
+    margin-top: 3px;
   }
 }
 
 .shipping {
   font-size: 12px;
-  color: #28a745;
+  font-weight: 600; 
+  color: $button;
+  margin-bottom: 10px;
 }
 
 .buyButton {
-  background: #007bff;
+  background-color: $button;
   color: #fff;
   padding: 10px 15px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 10px;
+  font-size: 16px; 
+  font-weight: bold;
+  text-transform: uppercase; 
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: #0056b3; 
+  }
 }
 
 /* MODAL */
@@ -121,8 +151,9 @@
 
 .modalContent {
   background: #fff;
-  width: 500px;
-  border-radius: 8px;
+  width: 769px;
+  height: 230px;
+  border-radius: 6px;
   padding: 20px;
   position: relative;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -140,35 +171,52 @@
 
 .modalBody {
   display: flex;
-  gap: 20px;
+  
 }
 
 .productImage {
-  width: 150px;
+  width: 200px;
   height: auto;
   object-fit: cover;
+  margin-left: 8%;
 }
 
 .productDetails {
+  margin-top: 2%;
+  margin-left: 15%;
   flex: 1;
+  max-width: 300px;
 }
 
 .productTitle {
   font-size: 18px;
   margin-bottom: 10px;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .productPrice {
-  font-size: 24px;
+  font-size: 22px;
   color: #000;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
 .productInstallments,
 .productShipping {
   font-size: 14px;
   color: #666;
+  margin-bottom: 10px;
 }
 
+.moreDetails{
+  font-size: 12px;
+  color: $destaque;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
 .modalFooter {
   margin-top: 20px;
   display: flex;
@@ -179,66 +227,73 @@
 .quantityControl {
   display: flex;
   align-items: center;
-  gap: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-weight: 600;
 }
 
 .quantityControl button {
   background: none;
-  border: 1px solid #ccc;
-  padding: 5px;
+  border: none;
   cursor: pointer;
+  padding: 10px 25px;
+  font-size: 16px;
 }
 
-.buyButton {
-  background-color: #ffd814;
+.btnModal{
+  background-color: $btnmodal;
   border: none;
-  padding: 10px 20px;
+  padding: 10px 45px;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: normal;
   cursor: pointer;
-  color: #000;
+  color: black;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 6px;
 }
 
 /* Marcas */
 
-.title_marcas{
+.marcas_title{
   text-align: center;
-  font-size: 24px;
+  font-size: 1.5rem; 
   font-weight: bold;
-  margin-bottom: 10px;
+  color: $destaque; 
 }
 
 .container_marcas {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  flex-wrap: wrap; /* Para tornar responsivo */
+  flex-wrap: wrap; 
   padding: 1rem;
 }
 
 .card_marcas {
-  width: 13rem; /* Ajuste de tamanho responsivo */
-  height: 13rem;
+  width: 10rem; 
+  height: 10rem;
   border-radius: 50%;
   background: #fff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), /* Sombra mais clara ao redor */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 
   0 6px 10px rgba(0, 0, 0, 0.15);
   transition: box-shadow 0.3s ease; 
-  display: flex; /* Centraliza o conteúdo */
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center; /* Centraliza verticalmente */
-  overflow: hidden; /* Garante que imagens não ultrapassem o círculo */
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  overflow: hidden; 
+  margin-bottom: 20px;
 }
 
 .card_marcas:hover {
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2), /* Aumenta a intensidade ao passar o mouse */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2), 
               0 10px 20px rgba(0, 0, 0, 0.25);
 }
 
 .card_marcas img {
-  width: 80%; /* Escala responsiva */
-  height: 80%; /* Garante proporção dentro do círculo */
-  object-fit: contain; /* Ajusta a imagem dentro do círculo */
+  width: 80%; 
+  height: 80%;
+  object-fit: contain; 
 }
 
 .title_marcas {

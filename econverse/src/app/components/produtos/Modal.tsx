@@ -1,19 +1,29 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Produtos.module.scss';
 
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   product: {
-    image: string;
-    description: string;
+    photo: string;
+    descriptionShort: string; 
     price: number;
   };
 }
 
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose, product }) => {
+  const [quantity, setQuantity] = useState(1); 
+
+  const increaseQuantity = () => {
+    setQuantity(prevQuantity => prevQuantity + 1);
+  };
+
+  const decreaseQuantity = () => {
+    setQuantity(prevQuantity => (prevQuantity > 1 ? prevQuantity - 1 : prevQuantity));
+  };
+
   if (!isOpen) return null;
 
   return (
@@ -23,23 +33,27 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, product }) => {
           &times;
         </button>
         <div className={styles.modalBody}>
-          <img src={product.image} alt={product.description} className={styles.productImage} />
+          <img src={product.photo} alt={product.descriptionShort} className={styles.productImage} />
           <div className={styles.productDetails}>
-            <h2 className={styles.productTitle}>{product.description}</h2>
+            <h2 className={styles.productTitle}>{product.descriptionShort}</h2> 
             <p className={styles.productPrice}>R$ {product.price.toFixed(2)}</p>
             <p className={styles.productInstallments}>
-              Many desktop publishing packages and web page editors now many desktop publishing
+              Ou 3x de {(product.price / 3).toFixed(2)} sem juros
             </p>
+            <p className={styles.moreDetails}>Veja mais detalhes do produto</p>
+            <div className={styles.modalFooter}>
+              <div className={styles.quantityControl}>
+                <button className={styles.quantityButton} onClick={decreaseQuantity}>
+                  -
+                </button>
+                <span className={styles.quantity}>{quantity}</span>
+                <button className={styles.quantityButton} onClick={increaseQuantity}>
+                  +
+                </button>
+              </div>
+              <button className={styles.btnModal}>Comprar</button>
+            </div>
           </div>
-        </div>
-        <div className={styles.modalFooter}>
-          <div className={styles.quantityControl}>
-            <button className={styles.quantityButton}>-</button>
-            <span className={styles.quantity}>1</span>
-            <button className={styles.quantityButton}>+</button>
-          </div>
-          <button className={styles.buyButton}>COMPRAR</button>
-          <p className={styles.moreDetails}>Veja mais detalhes do produto</p>
         </div>
       </div>
     </div>

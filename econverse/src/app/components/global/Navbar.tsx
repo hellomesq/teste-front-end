@@ -7,9 +7,9 @@ const Navbar: React.FC = () => {
     <header className={styles.navbar}>
       <div className={styles.navbarTop}>
         <div className={styles.navbarInfo}>
-          <span>Compra 100% segura</span>
-          <span>Frete grátis acima de R$ 200</span>
-          <span>Parcele suas compras</span>
+          <span>Compra <span className={styles.destaque}>100% segura</span></span>
+          <span><span className={styles.destaque}>Frete grátis </span>acima de R$ 200</span>
+          <span><span className={styles.destaque}>Parcele </span>suas compras</span>
         </div>
       </div>
       <div className={styles.navbarMain}>
@@ -25,7 +25,7 @@ const Navbar: React.FC = () => {
           </button>
         </div>
         <div className={styles.navbarIcons}>
-          <FaHeart title="Favoritos" />
+          <FaHeart title=" Meus Favoritos" />
           <FaUser title="Minha Conta" />
           <FaShoppingCart title="Carrinho" />
         </div>
@@ -37,7 +37,7 @@ const Navbar: React.FC = () => {
           <li><a href="#livros">Livros</a></li>
           <li><a href="#moda">Moda</a></li>
           <li><a href="#lancamentos">Lançamentos</a></li>
-          <li><a href="#ofertas">Ofertas do Dia</a></li>
+          <li><a href="#ofertas"><span className={styles.destaque}>Ofertas do Dia</span></a></li>
           <li><a href="#assinatura">Assinatura</a></li>
         </ul>
       </nav>

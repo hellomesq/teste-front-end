@@ -4,7 +4,7 @@ import styles from "./Produtos.module.scss";
 const Marcas: React.FC = () => {
     return (
         <>
-            <h1 className={styles.title_marcas}>Navegue por marcas</h1>
+            <h1 className={styles.marcas_title}>Navegue por marcas</h1>
             <div className={styles.container_marcas}>
                 {Array(5)
                     .fill(0)

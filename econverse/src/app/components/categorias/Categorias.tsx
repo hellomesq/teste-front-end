@@ -6,7 +6,7 @@ const Categorias: React.FC = () => {
     <div className={styles.cardContainer}>
       <div className={styles.card}>
         <img src="eletronicos.png" alt="Tecnologia" />
-        <p className={styles.cardCaption}>Tecnologia</p>
+        <p className={styles.cardCaption}><span className={styles.destaque}>Tecnologia</span></p>
       </div>
       <div className={styles.card}>
         <img src="supermercado.png" alt="Supermercado" />

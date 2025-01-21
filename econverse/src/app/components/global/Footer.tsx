@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
       <div className={styles.container}>
         <div className={styles.logoSection}>
           <h1 className={styles.logo}>
-            <span className={styles.yellow}>e</span>converse
+            <img src="Logo.png" alt="Logo da empresa" />
           </h1>
           <p className={styles.description}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className={styles.divider}></div> {/* Linha vertical separadora */}
+        <div className={styles.divider}></div> 
 
         <div className={styles.linksSection}>
           <div className={styles.column}>
