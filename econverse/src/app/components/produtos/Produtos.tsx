@@ -24,25 +24,26 @@ const Carousel: React.FC<CarouselProps> = ({ items, active }) => {
 
   return (
     <div className={styles.carousel}>
-      <div className={styles.arrow} onClick={moveLeft}>
-        <FontAwesomeIcon icon={faChevronLeft} />
-      </div>
-      <div className={styles.carouselInner}>
-        {items.slice(currentActive, currentActive + 4).map((item) => (
-          <div key={item.id} className={styles.item}>
-            <Item
-              id={item.id}
-              photo={item.photo}
-              descriptionShort={item.descriptionShort}
-              price={item.price}
-            />
-          </div>
-        ))}
-      </div>
-      <div className={styles.arrow} onClick={moveRight}>
-        <FontAwesomeIcon icon={faChevronRight} />
-      </div>
+    <div className={`${styles.arrow} ${styles.arrowLeft}`} onClick={moveLeft}>
+      <FontAwesomeIcon icon={faChevronLeft} />
     </div>
+    <div className={styles.carouselInner}>
+      {items.slice(currentActive, currentActive + 4).map((item) => (
+        <div key={item.id} className={styles.item}>
+          <Item
+            id={item.id}
+            photo={item.photo}
+            descriptionShort={item.descriptionShort}
+            price={item.price}
+          />
+        </div>
+      ))}
+    </div>
+    <div className={`${styles.arrow} ${styles.arrowRight}`} onClick={moveRight}>
+      <FontAwesomeIcon icon={faChevronRight} />
+    </div>
+  </div>
+  
   );
 };
 
